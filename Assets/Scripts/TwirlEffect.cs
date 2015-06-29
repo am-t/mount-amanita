@@ -11,13 +11,11 @@ public class TwirlEffect : MonoBehaviour
     private float twirlAngle;
     private float randomSubtraction;
     private float randomRadius;
-    public OSCConnectionExample osc;
     
     // Use this for initialization
     void Start()
     {
 
-        osc = GetComponent<OSCConnectionExample>();
         twirl = GetComponent<Twirl>();
         twirlRadius = twirl.radius.x;
         //twirlRadiusY = twirl.radius.y;
@@ -36,7 +34,7 @@ public class TwirlEffect : MonoBehaviour
     void Update()
     {
         //As long as concentration is certain level
-        if (osc.acc.x > 0.5f)
+        if (true)
         {
             //Debug.Log("Pressed V button");
             //Debug.Log("RandomSubtraction value is " + randomSubtraction);

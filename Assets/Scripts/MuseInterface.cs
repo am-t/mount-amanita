@@ -5,16 +5,13 @@ using UnityEngine;
 
 using UnityOSC;
 
-public class OSCConnectionExample : MonoBehaviour
+public class MuseInterface : MonoBehaviour
 {
     public string ServerName = "PD-in";
     public int serverIP = 5000;
-    //public Transform sphere;
-    public Vector3 offset;
-    public float multiplier = 10;
+    public MessageManager manager;
 
     private OSCServer server;
-    public Vector3 acc;
 
 
     private void Awake()
@@ -50,13 +47,15 @@ public class OSCConnectionExample : MonoBehaviour
         // Send something from PureData and it shows up in the Unity console
         if (packet.Address.StartsWith("/muse/elements/experimental/concentration"))
         {
-        	acc = new Vector3((float) packet.Data[0], (float) packet.Data[0], (float) packet.Data[0]);
-            Debug.Log(acc);
+        	manager.message(ServerName, "concentration",packet.Data[0]);
+        }else if(packet.Address.StartsWith("/muse/elements/blink")){
+            manager.message(ServerName, "blink", packet.Data[0]);
+        }else if(packet.Address.StartsWith("/muse/elements/touching_forehead")){
+            manager.message(ServerName, "touching", packet.Data[0]);
         }
         //Debug.Log(packet.Address + ": " + DataToString(packet.Data));
 
     }
-
     public static string DataToString(List<object> data)
 	{
 		var buffer = "";

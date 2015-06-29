@@ -4,7 +4,6 @@ using UnityStandardAssets.ImageEffects;
 
 public class BlurEffect : MonoBehaviour
 {
-	public OSCConnectionExample osc;
 
     public BlurOptimized blurOptimized;
     private float blurSizeVal;
@@ -12,7 +11,6 @@ public class BlurEffect : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		osc = GetComponent<OSCConnectionExample>();
 	    blurOptimized = GetComponent<BlurOptimized>();
 
         blurOptimized.blurSize = Random.Range(1.5f, 6.5f);
@@ -22,7 +20,7 @@ public class BlurEffect : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (osc.acc.x > 0.5f)
+	    if (true)
 	    {
 	        blurSizeVal -= 0.05f;
 	        blurSizeVal = Mathf.Clamp(blurSizeVal, 0f, 10f);

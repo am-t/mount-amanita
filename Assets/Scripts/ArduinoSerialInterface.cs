@@ -6,13 +6,14 @@ using System.IO.Ports;
 
 public class ArduinoSerialInterface : MonoBehaviour {
     
-    private SerialPort mySerialPort; 
+    private SerialPort mySerialPort;
+    public MessageManager manager; 
 
 	Thread myThread;
 	// Use this for initialization
 	void Start () {
 		Debug.Log(SerialPort.GetPortNames().ToString());
-        mySerialPort = new SerialPort("\\\\.\\COM12");
+        mySerialPort = new SerialPort("\\\\.\\COM18");
         mySerialPort.BaudRate = 9600;
         //mySerialPort.Parity = Parity.None;
         //mySerialPort.StopBits = StopBits.One;
