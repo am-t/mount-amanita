@@ -16,6 +16,13 @@ public class CameraShake : MonoBehaviour
 
     Vector3 originalPos;
 
+    public OSCConnectionExample osc;
+
+
+    void Start(){
+        osc = GetComponent<OSCConnectionExample>();
+    }
+
     void Awake()
     {
         if (camTransform == null)
@@ -35,7 +42,7 @@ public class CameraShake : MonoBehaviour
         //else shake
 
         //Currently shakes for 10 seconds, then stops
-        if (shake > 0)
+        if (osc.acc.x > 0.2)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
