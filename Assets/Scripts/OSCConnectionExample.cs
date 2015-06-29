@@ -5,16 +5,16 @@ using UnityEngine;
 
 using UnityOSC;
 
-public class OSCConnection : MonoBehaviour
+public class OSCConnectionExample : MonoBehaviour
 {
     public string ServerName = "PD-in";
     public int serverIP = 5000;
-    public Transform sphere;
+    //public Transform sphere;
     public Vector3 offset;
     public float multiplier = 10;
 
     private OSCServer server;
-    private Vector3 acc;
+    public Vector3 acc;
 
 
     private void Awake()
@@ -41,7 +41,7 @@ public class OSCConnection : MonoBehaviour
     private void Update()
     {
         //sphere.localPosition = (acc + offset) * multiplier;
-        sphere.localScale = new Vector3((acc.x * multiplier)+1, (acc.y * multiplier)+1, (acc.z * multiplier)+1);
+        //sphere.localScale = new Vector3((acc.x * multiplier)+1, (acc.y * multiplier)+1, (acc.z * multiplier)+1);
         
     }
 
