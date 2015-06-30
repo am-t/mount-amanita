@@ -12,4 +12,8 @@ public class GameController : MonoBehaviour {
 	void Update () {
 	
 	}
+
+	public void ParseMessage(object m){
+		Debug.Log(m);
+	}
 }

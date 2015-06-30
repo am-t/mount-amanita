@@ -21,7 +21,7 @@ public class ArduinoSerialInterface : MonoBehaviour {
         //mySerialPort.Handshake = Handshake.None;
         //mySerialPort.RtsEnable = true;
 
-        mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
+        //mySerialPort.DataReceived += new SerialDataReceivedEventHandler(DataReceivedHandler);
 
         if ( mySerialPort != null )
         {
@@ -57,19 +57,16 @@ public class ArduinoSerialInterface : MonoBehaviour {
 	  while(myThread.IsAlive)
 	  {
 	      string value = mySerialPort.ReadLine();
-	      sendEvent(value);	      
+	      manager.message(value);	      
 	  }
 	 }
 
-	private void sendEvent(string message){
-		Debug.Log(message);
-	}
-	private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
+	/*private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
     {
         SerialPort sp = (SerialPort)sender;
         string indata = sp.ReadExisting();
         Debug.Log("DataReceivedHandler:"+indata);
-    }
+    }*/
     
 }
 
