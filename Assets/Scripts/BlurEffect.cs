@@ -34,7 +34,6 @@ public class BlurEffect : MonoBehaviour
 
 	    }
 
-
 		/*blurSizeVal-= osc.acc.x;
 		blurSizeVal = Mathf.Clamp(blurSizeVal, 0f, 7f);
 		blurOptimized.blurSize = blurSizeVal;*/
