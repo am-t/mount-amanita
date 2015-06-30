@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public interface ICustomMessageTarget : IEventSystemHandler
 {
@@ -10,10 +11,16 @@ public interface ICustomMessageTarget : IEventSystemHandler
 public class MessageManager : MonoBehaviour, ICustomMessageTarget
 {
 	public GameController gc;
+	public ArduinoSerialInterface arduino;
 
     public void message(string id, string m = null, object val = null)
     {
         string sm = id + " " + m + " " + val;
+        sm.Trim();
 		gc.ParseMessage(sm);
+    }
+
+    public void Lights (int idx, int state){
+    	arduino.SendState(idx,state);
     }
 }

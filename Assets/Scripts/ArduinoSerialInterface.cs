@@ -61,6 +61,9 @@ public class ArduinoSerialInterface : MonoBehaviour {
 	  }
 	 }
 
+    public void SendState(int LEDid, int state){
+            mySerialPort.WriteLine("<"+LEDid + "," +state+">");
+     }
 	/*private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
     {
         SerialPort sp = (SerialPort)sender;
