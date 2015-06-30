@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using UnityEngine.EventSystems;
+using System;
 
 public interface ICustomMessageTarget : IEventSystemHandler
 {
@@ -14,6 +15,7 @@ public class MessageManager : MonoBehaviour, ICustomMessageTarget
     public void message(string id, string m = null, object val = null)
     {
         string sm = id + " " + m + " " + val;
+        sm.Trim();
 		gc.ParseMessage(sm);
     }
 }

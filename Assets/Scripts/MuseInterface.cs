@@ -48,9 +48,9 @@ public class MuseInterface : MonoBehaviour
         if (packet.Address.StartsWith("/muse/elements/experimental/concentration"))
         {
         	manager.message(ServerName, "concentration",packet.Data[0]);
-        }else if(packet.Address.StartsWith("/muse/elements/blink")){
+        }/*else if(packet.Address.StartsWith("/muse/elements/blink")){
             manager.message(ServerName, "blink", packet.Data[0]);
-        }else if(packet.Address.StartsWith("/muse/elements/touching_forehead")){
+        }*/else if(packet.Address.StartsWith("/muse/elements/touching_forehead")){
             manager.message(ServerName, "touching", packet.Data[0]);
         }
         //Debug.Log(packet.Address + ": " + DataToString(packet.Data));
