@@ -24,18 +24,16 @@ public class FadeEffect : MonoBehaviour
         {
             //Debug.Log("Pressed b button");
             alphaVal -= randomAlphaChange;
-            alphaVal = Mathf.Clamp(alphaVal, 0f, 1f);
-            sprite.color = new Color(1f, 1f, 1f, alphaVal);
-            timer = timeReset;
         }
         else if (timer < 1f)
         {
          //   Debug.Log("Resetting alpha value");
             alphaVal += randomAlphaChange;
-            alphaVal = Mathf.Clamp(alphaVal, 0f, 1f);
-            sprite.color = new Color(1f, 1f, 1f, alphaVal);
-            timer = timeReset;
         }
+
+        alphaVal = Mathf.Clamp(alphaVal, 0f, 1f);
+        sprite.color = new Color(1f, 1f, 1f, alphaVal);
+        timer = timeReset;
     }
 
 }
