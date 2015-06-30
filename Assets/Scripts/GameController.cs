@@ -6,6 +6,7 @@ public class GameController : MonoBehaviour {
 
 	public string[] museServer;
 	public int[] museStatus;
+	public MessageManager mm;
 
 	// Use this for initialization
 	void Start () {
@@ -60,11 +61,18 @@ public class GameController : MonoBehaviour {
 	}
 
 	private void MuseTouching(string srv, int status){
+		//1-0
 		Debug.Log("Muse Status Changed:"  + srv + " " + status);
 	}
 
 	private void ArduinoSensor(int sensorIndex, int status){
+		// sensorIndex[0-5] / status: 1-0
 		Debug.Log("Arduino: " + sensorIndex + " " + status);
+	}
+
+	public void LEDLights(int idx, int state){
+		//Call arduino to light or turn off an LED Send LED index and State idx[0-2] state: 1 on - 0 off
+		mm.Lights(idx,state);
 	}
 
 }
