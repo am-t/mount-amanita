@@ -31,7 +31,7 @@ public class MuseStatus : MonoBehaviour
 	    {
 	        if ((i - 1)%columnCount == 0)
 	        {
-	            
+	            j++;
 	        }
 
 	        GameObject newMuse = Instantiate(musePrefab) as GameObject;

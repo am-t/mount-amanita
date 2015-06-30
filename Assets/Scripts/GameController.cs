@@ -8,13 +8,37 @@ public class GameController : MonoBehaviour {
 	public int[] museStatus;
 	public MessageManager mm;
 
+    private int i;
+
 	// Use this for initialization
-	void Start () {
-	
+	void Start ()
+	{
+	    i = 0;
 	}
 	
 	// Update is called once per frame
 	void Update () {
+
+	    if (Input.GetKeyDown(KeyCode.A))
+	    {
+	        i++;
+	        i = i%2;
+	        LEDLights(0, i);
+	    }
+
+	    if (Input.GetKeyDown(KeyCode.S))
+	    {
+            i++;
+            i = i % 2;
+            LEDLights(0, i);
+	    }
+
+	    if (Input.GetKeyDown(KeyCode.D))
+	    {
+            i++;
+            i = i % 2;
+            LEDLights(0, i);
+	    }
 	
 	}
 
