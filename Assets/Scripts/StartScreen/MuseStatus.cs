@@ -6,7 +6,7 @@ public class MuseStatus : MonoBehaviour
 {
 
     public GameObject musePrefab;
-    public int museCount = 4, columnCount = 2;
+    public int museCount = 4, columnCount = 4;
 
 	// Use this for initialization
 	void Start ()
