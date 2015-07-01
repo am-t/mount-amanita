@@ -39,9 +39,9 @@ void setup() {
 void loop() {
   getDataFromPC();
   long now = millis();
-  if (now - timer > 600) {
-    int sensorN = INPUT_SIZE;
-    for (sensorN; sensorN >= 0; sensorN --) {
+  if (now - timer > 1500) {
+    int sensorN = 0;
+    for (sensorN; sensorN < INPUT_SIZE; sensorN ++) {
       if (digitalRead(inputPin[sensorN]) != pinState[sensorN]) {
         pinState[sensorN] = digitalRead(inputPin[sensorN]);
         Serial.print("arduino ");
@@ -50,6 +50,7 @@ void loop() {
         Serial.println(!pinState[sensorN]);
       }
     }
+    timer = millis();
   }
   if(fireLit){
     bonFire();
