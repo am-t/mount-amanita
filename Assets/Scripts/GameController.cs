@@ -136,8 +136,10 @@ public class GameController : MonoBehaviour {
 	private void checkMuse(){
 		if(notDetected){
 			for(int i = 0 ; i < 4 ; i++){
-				notDetected = false;
-				if(museStatus[i] != 0) startTimer();
+				if(museStatus[i] != 0) {
+					notDetected = false;
+					startTimer();
+				};
 			}
 		}
 	}
