@@ -16,11 +16,16 @@ public class GameController : MonoBehaviour {
     private float[] mushroomDifficulty;
     private int[] mushroomState;
 
+    private float waitForMuseTime;
+    private float waitForCalibrationTime;
+
 	// Use this for initialization
 	void Start ()
 	{
 	    i = 0;
 	    notDetected = true;
+	    waitForMuseTime = 30;
+	    waitForCalibrationTime = 100;
 
 	    museServer = new string[4];
 	    museStatus = new int[4];
@@ -137,12 +142,35 @@ public class GameController : MonoBehaviour {
 		}
 	}
 
-	private void startTimer() {
-		
+	private void startTimer()
+	{
+	    waitForMuseTime -= Time.deltaTime;
+        Debug.Log("Wait time left for players to log on is: " + waitForMuseTime);
+	    if (waitForMuseTime <= 0)
+	    {
+	        startTutorial();
+	    }
+
+	    for (int i = 0; i < 4; i++)
+	    {
+	        if (museStatus[i] == 1)
+	        {
+                Debug.Log("Muse " + i + "is online");
+	            //means the muse at index i is on, and we need to pair it to an effect in the game
+	        }
+	    }
 	}
 
 	private void startTutorial() {
-		startLevel(1);		
+
+        //Graphical, add image -> GUI Canvas stuff
+	    waitForCalibrationTime -= Time.deltaTime;
+        Debug.Log("Wait time for the tutorial to end is: " + waitForCalibrationTime);
+	    if (waitForCalibrationTime <= 0)
+	    {
+	        startLevel(1);
+	    }
+
 	}
 
 	private void startLevel(int scene) {
