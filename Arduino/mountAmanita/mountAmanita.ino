@@ -1,11 +1,15 @@
 #define INPUT_SIZE 6
-#define OUTPUT_SIZE 6
+#define UV_SIZE 3
+#define BONFIRE_SIZE 3
 #define MSG_CHARS 3
 
 long timer;
-short inputPin[] = {7, 8, 9, 10, 11, 12};
-bool pinState[] = {0, 0, 0, 0, 0, 0};
-short ledPin[] = {2,3,4};
+short inputPin[] = {8, 9, 10, 11, 12, 13};
+bool pinState[] = {1,1,1,1,1,1};
+short uvPin[] = {2,4,7};
+short firePin[] = {3,5,6};
+bool fireLit = false;
+
 
 
 const byte buffSize = 40;
@@ -27,8 +31,8 @@ void setup() {
   pinMode(inputPin[5], INPUT_PULLUP);
   //digitalWrite(inputPin[0], HIGH); //Enables Pull-up resistor -> HIGH = OFF
   for(ledCount;ledCount>=0;ledCount--){
-    pinMode(ledPin[ledCount],OUTPUT);
-    digitalWrite(ledPin[ledCount],LOW);
+    pinMode(uvPin[ledCount],OUTPUT);
+    digitalWrite(uvPin[ledCount],LOW);
   }
 }
 
@@ -46,6 +50,9 @@ void loop() {
         Serial.println(!pinState[sensorN]);
       }
     }
+  }
+  if(fireLit){
+    bonFire();
   }
 }
 
@@ -81,5 +88,22 @@ void parseData() {
   int LEDid = atoi(strtokIndx); // copy it to messageFromPC
   strtokIndx = strtok(NULL, ","); // this continues where the previous call left off
   int state = atoi(strtokIndx);     // convert this part to an integer
-  digitalWrite(ledPin[LEDid],state);
+  if(LEDid < UV_SIZE){
+    digitalWrite(uvPin[LEDid],state);
+  }else{
+    if(state == 1){fireLit = true;}
+    else if(state == 0){
+      fireLit = false;
+      for(int i = 0; i < BONFIRE_SIZE; i++){
+        analogWrite(firePin[i], 0);
+      }
+    }
+  }
+  
+}
+
+void bonFire(){
+  for(int i = 0; i < BONFIRE_SIZE; i++){
+    analogWrite(firePin[i], random(120)+50);
+  }  
 }
