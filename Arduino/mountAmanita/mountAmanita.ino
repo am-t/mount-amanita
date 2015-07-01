@@ -3,7 +3,8 @@
 #define BONFIRE_SIZE 3
 #define MSG_CHARS 3
 
-long timer;
+long timerSwitches;
+long timerBonfire;
 short inputPin[] = {8, 9, 10, 11, 12, 13};
 bool pinState[] = {1,1,1,1,1,1};
 short uvPin[] = {2,4,7};
@@ -39,7 +40,7 @@ void setup() {
 void loop() {
   getDataFromPC();
   long now = millis();
-  if (now - timer > 1500) {
+  if (now - timerSwitches > 1500) {
     int sensorN = 0;
     for (sensorN; sensorN < INPUT_SIZE; sensorN ++) {
       if (digitalRead(inputPin[sensorN]) != pinState[sensorN]) {
@@ -50,8 +51,9 @@ void loop() {
         Serial.println(!pinState[sensorN]);
       }
     }
-    timer = millis();
+    timerSwitches = millis();
   }
+
   if(fireLit){
     bonFire();
   }
@@ -104,7 +106,11 @@ void parseData() {
 }
 
 void bonFire(){
-  for(int i = 0; i < BONFIRE_SIZE; i++){
-    analogWrite(firePin[i], random(120)+50);
-  }  
+  long now = millis();
+    if(now-timerBonfire > 100){
+      for(int i = 0; i < BONFIRE_SIZE; i++){
+        analogWrite(firePin[i], random(120)+50);
+        timerBonfire = millis();
+      }
+    }  
 }
