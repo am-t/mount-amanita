@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class Lights : MonoBehaviour {
+public class LightController : MonoBehaviour {
 
 	public GameController gc;
 	public int lvl;
