@@ -13,7 +13,7 @@ public class GameController : MonoBehaviour {
     private int playerCountdown;
     private bool onPlayerCountdown;
 
-    private float[] mushroomDifficulty;
+    public float[] mushroomDifficulty;
     public int[] mushroomState;
 
     private float waitForMuseTime;
@@ -177,8 +177,12 @@ public class GameController : MonoBehaviour {
 
 	}
 
-	private void startLevel(int scene) {
+	public void startLevel(int scene) {
 		Application.LoadLevel(scene);
+	}
+
+	public void startEffects(float difficulty){
+
 	}
 
 }
