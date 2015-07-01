@@ -9,11 +9,34 @@ public class GameController : MonoBehaviour {
 	public MessageManager mm;
 
     private int i;
+    private bool notDetected;
+    private int playerCountdown;
+    private bool onPlayerCountdown;
+
+    private int[] mushroomDifficulty;
+    private int[] musroomState;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    i = 0;
+	    notDetected = true;
+
+	    museServer = new string[4];
+	    museStatus = new int[4];
+	    mushroomState = new int[] { 1, 1, 1, 1, 1, 1};
+	    mushroomDifficulty = new float[6];
+
+	    playerCountdown = 30;
+	    
+	    for(int i = 0; i < 6; i++ ){
+	    	if(i == 0){
+	    		mushroomDifficulty[i] = Random.Range(0f,1f);
+	    	}else if(i == 1 || i == 2){
+	    		mushroomDifficulty[i] = Random.Range(0f,7f);
+	    	}
+	    }
+
 	}
 	
 	// Update is called once per frame
@@ -30,16 +53,21 @@ public class GameController : MonoBehaviour {
 	    {
             i++;
             i = i % 2;
-            LEDLights(0, i);
+            LEDLights(1, i);
 	    }
 
 	    if (Input.GetKeyDown(KeyCode.D))
 	    {
             i++;
             i = i % 2;
-            LEDLights(0, i);
+            LEDLights(2, i);
 	    }
-	
+		
+		checkMuse();
+		if (onPlayerCountdown) {
+			playerCountdown -= Timer.deltaTime();
+			if (playerCountdown <= 0) startTutorial();
+		}
 	}
 
 	public void ParseMessage(string m){
@@ -97,6 +125,27 @@ public class GameController : MonoBehaviour {
 	public void LEDLights(int idx, int state){
 		//Call arduino to light or turn off an LED Send LED index and State idx[0-2] state: 1 on - 0 off
 		mm.Lights(idx,state);
+	}
+
+	private void checkMuse(){
+		if(notDetected){
+			for(int i = 0 ; i < 4 ; i++){
+				notDetected = false;
+				if(museStatus[i] != 0) startTimer();
+			}
+		}
+	}
+
+	private void startTimer() {
+		
+	}
+
+	private void startTutorial() {
+		startLevel(1);		
+	}
+
+	private void startLevel(int scene) {
+		Application.LoadLevel(scene);
 	}
 
 }

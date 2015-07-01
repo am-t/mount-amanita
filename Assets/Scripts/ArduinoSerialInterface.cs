@@ -63,6 +63,7 @@ public class ArduinoSerialInterface : MonoBehaviour {
 
     public void SendState(int LEDid, int state){
             mySerialPort.WriteLine("<"+LEDid + "," +state+">");
+            Debug.Log("Sending to Arduino: "+LEDid+" "+state );
      }
 	/*private void DataReceivedHandler(object sender, SerialDataReceivedEventArgs e)
     {
