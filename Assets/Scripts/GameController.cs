@@ -13,8 +13,8 @@ public class GameController : MonoBehaviour {
     private int playerCountdown;
     private bool onPlayerCountdown;
 
-    private int[] mushroomDifficulty;
-    private int[] musroomState;
+    private float[] mushroomDifficulty;
+    private int[] mushroomState;
 
 	// Use this for initialization
 	void Start ()
@@ -25,15 +25,15 @@ public class GameController : MonoBehaviour {
 	    museServer = new string[4];
 	    museStatus = new int[4];
 	    mushroomState = new int[] { 1, 1, 1, 1, 1, 1};
-	    mushroomDifficulty = new float[6];
+        mushroomDifficulty = new float[6];
 
 	    playerCountdown = 30;
 	    
-	    for(int i = 0; i < 6; i++ ){
-	    	if(i == 0){
-	    		mushroomDifficulty[i] = Random.Range(0f,1f);
-	    	}else if(i == 1 || i == 2){
-	    		mushroomDifficulty[i] = Random.Range(0f,7f);
+	    for(int j = 0; j < 6; j++ ){
+	    	if(j == 0){
+	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0f,1f);
+	    	}else if(j == 1 || j == 2){
+	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0f,7f);
 	    	}
 	    }
 
@@ -64,8 +64,9 @@ public class GameController : MonoBehaviour {
 	    }
 		
 		checkMuse();
-		if (onPlayerCountdown) {
-			playerCountdown -= Timer.deltaTime();
+		if (onPlayerCountdown)
+		{
+		    playerCountdown -= (int)Time.deltaTime; 
 			if (playerCountdown <= 0) startTutorial();
 		}
 	}
