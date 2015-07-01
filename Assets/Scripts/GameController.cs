@@ -14,10 +14,11 @@ public class GameController : MonoBehaviour {
     private bool onPlayerCountdown;
 
     private float[] mushroomDifficulty;
-    private int[] mushroomState;
+    public int[] mushroomState;
 
     private float waitForMuseTime;
     private float waitForCalibrationTime;
+
 
 	// Use this for initialization
 	void Start ()
@@ -126,6 +127,7 @@ public class GameController : MonoBehaviour {
 	private void ArduinoSensor(int sensorIndex, int status){
 		// sensorIndex[0-5] / status: 1-0
 		Debug.Log("Arduino: " + sensorIndex + " " + status);
+		mushroomState[sensorIndex] = status;
 	}
 
 	public void LEDLights(int idx, int state){
