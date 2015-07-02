@@ -42,7 +42,7 @@ public class FadeEffect : MonoBehaviour
     }
     public void applyConcentration (float con){
         float result = Mathf.Lerp(0f,1f,1-con);
-        alphaVal = Mathf.Clamp(alphaVal, 0f, 1f);
+        alphaVal = Mathf.Clamp(result, 0f, 1f);
         sprite.color = new Color(1f, 1f, 1f, alphaVal);
     }
 
