@@ -11,8 +11,13 @@ public class FadeEffect : MonoBehaviour
     float timeReset = 3f;
     private float randomAlphaChange;
 
+    private GameController gc;
+    public int museNumber;
+
+    // Use this for initialization
     void Start()
     {
+        gc = gameObject.GetComponent<GameController>();
         randomAlphaChange = Random.Range(0.05f, 0.25f);
     }
 
@@ -20,7 +25,7 @@ public class FadeEffect : MonoBehaviour
     private void Update()
     {
         timer -= Time.deltaTime;
-        if (Input.GetKeyDown(KeyCode.B))
+        if (Input.GetKeyDown(KeyCode.B) && gc.museStatus[museNumber] == 1)
         {
             //Debug.Log("Pressed b button");
             alphaVal -= randomAlphaChange;

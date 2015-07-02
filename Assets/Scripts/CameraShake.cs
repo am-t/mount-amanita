@@ -16,9 +16,13 @@ public class CameraShake : MonoBehaviour
 
     Vector3 originalPos;
 
+    private GameController gc;
+    public int museNumber;
 
-
-    void Start(){
+	// Use this for initialization
+    private void Start()
+    {
+        gc = gameObject.GetComponent<GameController>();
     }
 
     void Awake()
@@ -40,7 +44,7 @@ public class CameraShake : MonoBehaviour
         //else shake
 
         //Currently shakes for 10 seconds, then stops
-        if (true)
+        if (true && gc.museStatus[museNumber] == 1)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 

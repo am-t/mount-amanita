@@ -8,9 +8,13 @@ public class BlurEffect : MonoBehaviour
     public BlurOptimized blurOptimized;
     private float blurSizeVal;
 
+    private GameController gc;
+    public int museNumber;
+
 	// Use this for initialization
 	void Start ()
 	{
+	    gc = gameObject.GetComponent<GameController>();
 	    blurOptimized = GetComponent<BlurOptimized>();
 
         blurOptimized.blurSize = Random.Range(1.5f, 6.5f);
@@ -20,7 +24,7 @@ public class BlurEffect : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (true)
+	    if (true && gc.museStatus[museNumber] == 1)
 	    {
 	        blurSizeVal -= 0.05f;
 	        blurSizeVal = Mathf.Clamp(blurSizeVal, 0f, 10f);

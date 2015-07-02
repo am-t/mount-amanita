@@ -4,6 +4,7 @@ using System.Collections;
 public class MushroomController : MonoBehaviour {
 
 	public GameController gc;
+    public EffectInitialize ei;
 	public int lvl;
 	private bool triggered;
 
@@ -20,29 +21,29 @@ public class MushroomController : MonoBehaviour {
 			switch(lvl){
 				case 2:
 					if(gc.mushroomState[0] == 1){
-						gc.startEffects(gc.mushroomDifficulty[0]);
+                        ei.startEffects(gc.mushroomDifficulty[0]);
 						triggered = true;
 					}
 				break;
 				case 3:
 					if(gc.mushroomState[1] == 1){
-						gc.startEffects(gc.mushroomDifficulty[1]);
+                        ei.startEffects(gc.mushroomDifficulty[1]);
 						triggered = true;
 
 					}else if(gc.mushroomState[2] == 1){
-						gc.startEffects(gc.mushroomDifficulty[2]);
+                        ei.startEffects(gc.mushroomDifficulty[2]);
 						triggered = true;
 					}
 				break;
 				case 4:
 					if(gc.mushroomState[3] == 1){
-						gc.startEffects(gc.mushroomDifficulty[3]);
+                        ei.startEffects(gc.mushroomDifficulty[3]);
 						triggered = true;
 					}else if(gc.mushroomState[4] == 1){
-						gc.startEffects(gc.mushroomDifficulty[4]);
+                        ei.startEffects(gc.mushroomDifficulty[4]);
 						triggered = true;
 					}else if(gc.mushroomState[5] == 1){
-						gc.startEffects(gc.mushroomDifficulty[5]);
+                        ei.startEffects(gc.mushroomDifficulty[5]);
 						triggered = true;
 					}
 				break;

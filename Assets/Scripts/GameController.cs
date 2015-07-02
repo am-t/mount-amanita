@@ -19,7 +19,6 @@ public class GameController : MonoBehaviour {
     private float waitForMuseTime;
     private float waitForCalibrationTime;
 
-
 	// Use this for initialization
 	void Start ()
 	{
@@ -33,7 +32,7 @@ public class GameController : MonoBehaviour {
 	    mushroomState = new int[] { 1, 1, 1, 1, 1, 1};
         mushroomDifficulty = new float[6];
 
-	    playerCountdown = 30;
+        //scriptArray = new GameObject[4];
 	    
 	    for(int j = 0; j < 6; j++ ){
 	    	if(j == 0){
@@ -70,11 +69,7 @@ public class GameController : MonoBehaviour {
 	    }
 		
 		checkMuse();
-		if (onPlayerCountdown)
-		{
-		    playerCountdown -= (int)Time.deltaTime; 
-			if (playerCountdown <= 0) startTutorial();
-		}
+	    startTimer();
 	}
 
 	public void ParseMessage(string m){
@@ -181,10 +176,5 @@ public class GameController : MonoBehaviour {
 		Application.LoadLevel(scene);
 	}
 
-	public void startEffects(float difficulty){
-		//Get currently active muses
-		//Attach them a distorting effect
-		//
-	}
 
 }

@@ -11,10 +11,14 @@ public class TwirlEffect : MonoBehaviour
     private float twirlAngle;
     private float randomSubtraction;
     private float randomRadius;
-    
+
+    private GameController gc;
+    public int museNumber;
+
     // Use this for initialization
     void Start()
     {
+        gc = gameObject.GetComponent<GameController>();
 
         twirl = GetComponent<Twirl>();
         twirlRadius = twirl.radius.x;
@@ -34,7 +38,7 @@ public class TwirlEffect : MonoBehaviour
     void Update()
     {
         //As long as concentration is certain level
-        if (true)
+        if (true && gc.museStatus[museNumber] == 1)
         {
             //Debug.Log("Pressed V button");
             //Debug.Log("RandomSubtraction value is " + randomSubtraction);
