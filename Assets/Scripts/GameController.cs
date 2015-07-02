@@ -19,6 +19,8 @@ public class GameController : MonoBehaviour {
     private float waitForMuseTime;
     private float waitForCalibrationTime;
 
+    public float[] playerConcentration;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -31,6 +33,8 @@ public class GameController : MonoBehaviour {
 	    museStatus = new int[4];
 	    mushroomState = new int[] { 1, 1, 1, 1, 1, 1};
         mushroomDifficulty = new float[6];
+
+        playerConcentration = new float[] {0f,0f,0f,0f};
 
         //scriptArray = new GameObject[4];
 	    
@@ -114,6 +118,21 @@ public class GameController : MonoBehaviour {
 	private void MuseConcentration(string srv, float value){
 		//Do Stuff with Concentration values
 		Debug.Log("Concentration: " + srv + " " + value);
+		switch(srv){
+			case "Muse_1":
+				playerConcentration[0] = value;
+			break;
+			case "Muse_2":
+				playerConcentration[1] = value;
+			break;
+			case "Muse_3":
+				playerConcentration[2] = value;
+			break;
+			case "Muse_4":
+				playerConcentration[3] = value;
+			break;
+		}
+		
 	}
 
 	private void MuseTouching(string srv, int status){

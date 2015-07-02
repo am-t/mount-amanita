@@ -38,7 +38,7 @@ public class TwirlEffect : MonoBehaviour
     void Update()
     {
         //As long as concentration is certain level
-        if (true && gc.museStatus[museNumber] == 1)
+        /*if (true && gc.museStatus[museNumber] == 1)
         {
             //Debug.Log("Pressed V button");
             //Debug.Log("RandomSubtraction value is " + randomSubtraction);
@@ -67,8 +67,14 @@ public class TwirlEffect : MonoBehaviour
             twirl.radius.x = twirlRadius;
             twirl.radius.y = twirlRadius;
             twirl.angle = twirlAngle;
-
-        }
+        }*/
         
+    }
+
+    public void applyConcentration (float con){
+        float result = Mathf.lerp(0f,1.5f,1-con);
+        twirlRadius = Mathf.Clamp(twirlRadius, 0, 1.5f);
+        twirl.radius.x = twirlRadius;
+        twirl.radius.y = twirlRadius;
     }
 }

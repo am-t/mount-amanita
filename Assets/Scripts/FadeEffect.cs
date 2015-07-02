@@ -24,7 +24,7 @@ public class FadeEffect : MonoBehaviour
 
     private void Update()
     {
-        timer -= Time.deltaTime;
+        /*timer -= Time.deltaTime;
         if (Input.GetKeyDown(KeyCode.B) && gc.museStatus[museNumber] == 1)
         {
             //Debug.Log("Pressed b button");
@@ -38,7 +38,12 @@ public class FadeEffect : MonoBehaviour
 
         alphaVal = Mathf.Clamp(alphaVal, 0f, 1f);
         sprite.color = new Color(1f, 1f, 1f, alphaVal);
-        timer = timeReset;
+        timer = timeReset;*/
+    }
+    public void applyConcentration (float con){
+        float result = Mathf.lerp(0f,1f,1-con);
+        alphaVal = Mathf.Clamp(alphaVal, 0f, 1f);
+        sprite.color = new Color(1f, 1f, 1f, alphaVal);
     }
 
 }

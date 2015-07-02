@@ -44,7 +44,7 @@ public class CameraShake : MonoBehaviour
         //else shake
 
         //Currently shakes for 10 seconds, then stops
-        if (true && gc.museStatus[museNumber] == 1)
+        /*if (true && gc.museStatus[museNumber] == 1)
         {
             camTransform.localPosition = originalPos + Random.insideUnitSphere * shakeAmount;
 
@@ -54,6 +54,18 @@ public class CameraShake : MonoBehaviour
         {
             shake = 0f;
             camTransform.localPosition = originalPos;
+        }*/
+    }
+    public void applyConcentration (float con){
+        float result = Mathf.lerp(0f,1f,1-con);
+        camTransform.localPosition = originalPos + Random.insideUnitSphere * result;
+        //shake -= Time.deltaTime * decreaseFactor;
+        if(result == 0f) {
+            shake = 0f;
+            camTransform.localPosition = originalPos;
+        }else{
+            shake = 0.1f;
         }
+
     }
 }

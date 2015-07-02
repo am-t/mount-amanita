@@ -24,7 +24,7 @@ public class BlurEffect : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-	    if (true && gc.museStatus[museNumber] == 1)
+	    /*if (true && gc.museStatus[museNumber] == 1)
 	    {
 	        blurSizeVal -= 0.05f;
 	        blurSizeVal = Mathf.Clamp(blurSizeVal, 0f, 10f);
@@ -42,4 +42,10 @@ public class BlurEffect : MonoBehaviour
 		blurSizeVal = Mathf.Clamp(blurSizeVal, 0f, 7f);
 		blurOptimized.blurSize = blurSizeVal;*/
 	}
+
+	public void applyConcentration (float con){
+        float result = Mathf.lerp(0f,1.5f,1-con);
+        blurSizeVal = Mathf.Clamp(result, 0f, 10f);
+        blurOptimized.blurSize = blurSizeVal;
+    }
 }
