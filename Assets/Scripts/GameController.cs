@@ -36,9 +36,11 @@ public class GameController : MonoBehaviour {
 	    
 	    for(int j = 0; j < 6; j++ ){
 	    	if(j == 0){
-	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0f,1f);
+	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0f,0.25f);
 	    	}else if(j == 1 || j == 2){
-	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0f,7f);
+	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0.25f,0.75f);
+	    	}else if(j == 3 || j == 4 || j == 5){
+	    		mushroomDifficulty[j] = UnityEngine.Random.Range(0.75f,1f);
 	    	}
 	    }
 
