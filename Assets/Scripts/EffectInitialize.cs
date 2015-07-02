@@ -10,11 +10,17 @@ public class EffectInitialize : MonoBehaviour
     private bool effectReady = false;
     private float dif = 0.0f;
     public int nextlvl;
+    public FadeEffect fe;
+    public CameraShake cs;
+    public BlurEffect be;
 
 	// Use this for initialization
 	void Start ()
 	{
 	    gc = gameObject.GetComponent<GameController>();
+	    fe = gameObject.GetComponent<FadeEffect>();
+	    cs = gameObject.GetComponent<CameraShake>();
+	    be = gameObject.GetComponent<BlurEffect>();
 	}
 	
 	// Update is called once per frame
