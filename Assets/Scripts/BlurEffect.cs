@@ -44,7 +44,7 @@ public class BlurEffect : MonoBehaviour
 	}
 
 	public void applyConcentration (float con){
-        float result = Mathf.lerp(0f,1.5f,1-con);
+        float result = Mathf.Lerp(0f,1.5f,1-con);
         blurSizeVal = Mathf.Clamp(result, 0f, 10f);
         blurOptimized.blurSize = blurSizeVal;
     }

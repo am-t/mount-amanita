@@ -54,5 +54,6 @@ public class EffectInitialize : MonoBehaviour
         dif = difficulty;
         effectReady = true;
         //TODO: Start Timer
+        }
     }
-}
+

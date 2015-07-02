@@ -57,7 +57,7 @@ public class CameraShake : MonoBehaviour
         }*/
     }
     public void applyConcentration (float con){
-        float result = Mathf.lerp(0f,1f,1-con);
+        float result = Mathf.Lerp(0f,1f,1-con);
         camTransform.localPosition = originalPos + Random.insideUnitSphere * result;
         //shake -= Time.deltaTime * decreaseFactor;
         if(result == 0f) {

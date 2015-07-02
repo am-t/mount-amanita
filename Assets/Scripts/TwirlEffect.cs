@@ -72,7 +72,7 @@ public class TwirlEffect : MonoBehaviour
     }
 
     public void applyConcentration (float con){
-        float result = Mathf.lerp(0f,1.5f,1-con);
+        float result = Mathf.Lerp(0f,1.5f,1-con);
         twirlRadius = Mathf.Clamp(twirlRadius, 0, 1.5f);
         twirl.radius.x = twirlRadius;
         twirl.radius.y = twirlRadius;
