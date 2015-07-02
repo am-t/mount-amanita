@@ -22,7 +22,7 @@ public class EffectInitialize : MonoBehaviour
 
     public void startEffects(float difficulty)
     {
-        int newIndex = Random.Range(0, effectArray.Length);
+        /*int newIndex = Random.Range(0, effectArray.Length);
         
         //Get currently active muses
         //Make an array of effects
@@ -32,7 +32,7 @@ public class EffectInitialize : MonoBehaviour
                 currentIndex = newIndex;
                 effectArray[currentIndex].SetActive(true);
             }
-        }
+        }*/
 
 
     }
