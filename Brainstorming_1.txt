@@ -1,0 +1,51 @@
+Themes: Mini and Forbidden
+
+Figure out the format for the game should we use?
+	-Game where players can interact physically with each other.
+		Puzzle game. Finding different sets of levels or problems that you unlock through interacting with others.
+		Using your body as a tool, gaming experience.
+		Narrative: make it up along the way (low priority)
+	
+	
+	-Experience type of game.
+
+	-Musical game. A lot of interactivity. The more people join in, the more "fun" it will be.
+		Each person becomes the instrument. 
+		Issues: Only one person is a note if we use the Makey Makey.
+		Makey Makey as triggers, maybe even the Muse using the accelerometer, the concentration levels to produce different notes.
+
+	-Board game element. Interactive board game. Placing pieces on the board > act as switches, circuits > triggers actions and projections.
+		Mushrooms as pieces. Mushroom forest. Mushroom as drugs.
+		Mushrooms to place on the board, each has an effect. 
+		Around a bonfire. Maybe starving people who have nothing left to eat but trippy mushrooms?
+		Maybe make sounds as we eat the mushrooms? 
+		Goal: To make sure that not all of the players end up drugged.
+		Uses projections, board game, makey makey. Muse headband, or any other feedback tool.
+
+		4 players. Mushrooms planted around, each player takes a turn to eat a mushroom.
+		For X amount of seconds, there is a trippy effect, and the players need to keep themselves calm, and the better you keep themselves calm, the more points you accumulate.
+
+		You want to keep yourself trippy the longest amount of time. How do we regulate how long the trips last? If someone goes on a trip for 5 minutes and the rest are just waiting?
+		Have some sort of receptor where you can place your mushrooms, that way we resolve the way the game knows who is eating what.
+		Need to decide how the game knows who is picking the mushrooms and associating it.
+		Game: The more focused you are, the more points you accumulate. The more you distract others, the less points you make.		
+		
+		Give different effects for the mushrooms. Perfectly healthy ones (you lose a turn), extra trippy ones (boost trippiness)
+		Randomize the distributed effects on the mushrooms every gameplay > makes the game replayable and the game can never be anticipated.
+		
+		Gameplay: Stay sane the longest possible. Have each mushroom hooked up to a different circuit / resistor and a wire.
+		Use the Muse? Detect the levels of concentration during the levels of trippiness. The more calm you keep yourself, the better for you.
+		Need to define the gameplay.
+		Concentration game > The more you can keep calm, the more points you get. The person with the most points wins the game.
+		
+		----
+		4 players. Anyone can take a mushroom. 2 minute gameplay.
+
+		----
+		Pick a mushroom as a team. Everyone experiences the same trippiness.
+
+--
+Intro screen
+Puzzle mode. -> The more you're calm, the more you remove the part of the puzzle.  
+Loading screen
+End screen
