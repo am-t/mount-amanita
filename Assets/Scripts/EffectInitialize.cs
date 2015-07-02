@@ -30,7 +30,7 @@ public class EffectInitialize : MonoBehaviour
          bool allGood = true;
          for(int i = 0; i < 4; i++){
             if(effectArray[i].activeSelf){
-                effectArray[i].applyConcentration(gc.playerConcentration[i]);
+                //effectArray[i].applyConcentration(gc.playerConcentration[i]);
                 if(gc.playerConcentration[i] != 1.0f){
                     allGood = false;
                 }
