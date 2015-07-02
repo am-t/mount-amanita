@@ -7,6 +7,7 @@ public class GameTimer : MonoBehaviour {
     [SerializeField] private int level;
     private bool run;
 
+
 	// Use this for initialization
 	void Start () {
         run = false;
@@ -22,6 +23,7 @@ public class GameTimer : MonoBehaviour {
                 Debug.Log("Changing scenes");
                 Application.LoadLevel(level);
             }*/
+
         }
 	}
     public void start(){
