@@ -184,7 +184,7 @@ public class GameController : MonoBehaviour {
 	public void startEffects(float difficulty){
 		//Get currently active muses
 		//Attach them a distorting effect
-		//
+		//Display scene with effects attached
 	}
 
 }
