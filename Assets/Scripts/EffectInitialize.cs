@@ -10,10 +10,12 @@ public class EffectInitialize : MonoBehaviour
     private bool effectReady = false;
     private float dif = 0.0f;
     public int nextlvl;
+    public int lvl;
     private BlurEffect be;
     private CameraShake cs;
     private FadeEffect fe ;
     private TwirlEffect te;
+    private GameTimer gt;
 
 	// Use this for initialization
 	void Start ()
@@ -23,6 +25,7 @@ public class EffectInitialize : MonoBehaviour
         cs = gameObject.GetComponent<CameraShake>();
         fe = gameObject.GetComponent<FadeEffect>();
         te = gameObject.GetComponent<TwirlEffect>();
+        gt = gameObject.GetComponent<GameTimer>();
 
 	}
 	
@@ -34,12 +37,10 @@ public class EffectInitialize : MonoBehaviour
          for(int i = 0; i < 4; i++){
             if(effectArray[i].activeSelf){
                 switch(effectArray[i].GetType().ToString()){
-                    case "BlurEffect":
-                        
+                    case "BlurEffect":                       
                          be.applyConcentration(gc.playerConcentration[i]);
                     break;
-                    case "CameraShake":
-                         
+                    case "CameraShake":                        
                          cs.applyConcentration(gc.playerConcentration[i]);
                     break;
                     case "FadeEffect":
@@ -57,8 +58,10 @@ public class EffectInitialize : MonoBehaviour
             }
          }
          if(allGood){
+            float elapsed = gt.stop();
+            gc.levelTime[lvl-1] = elapsed;
             gc.startLevel(nextlvl);
-            //TODO: Stop Timer
+            
          }
 
        }
@@ -79,7 +82,7 @@ public class EffectInitialize : MonoBehaviour
         }
         dif = difficulty;
         effectReady = true;
-        //TODO: Start Timer
+        gt.start();
         }
     }
 

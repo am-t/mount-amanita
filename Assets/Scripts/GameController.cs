@@ -21,6 +21,8 @@ public class GameController : MonoBehaviour {
 
     public float[] playerConcentration;
 
+    public float[] levelTime;
+
 	// Use this for initialization
 	void Start ()
 	{
@@ -35,6 +37,8 @@ public class GameController : MonoBehaviour {
         mushroomDifficulty = new float[6];
 
         playerConcentration = new float[] {0f,0f,0f,0f};
+
+        levelTime = new float[3];
 
         //scriptArray = new GameObject[4];
 	    
@@ -194,7 +198,26 @@ public class GameController : MonoBehaviour {
 	}
 
 	public void startLevel(int scene) {
-		Application.LoadLevel(scene);
+		if(scene == 5){
+			float sum = 0f;
+ 
+		     foreach (float item in levelTime)
+		     {
+		         sum += item;
+		     }
+
+		    if(sum > 300){
+    			Application.LoadLevel(7);
+		    }else if(sum > 150 && sum < 300){
+    			Application.LoadLevel(6);
+		    }else if(sum > 0 && sum < 150){
+    			Application.LoadLevel(5);
+		    }
+		 
+		}else{
+			Application.LoadLevel(scene);
+		}
+		
 	}
 
 
